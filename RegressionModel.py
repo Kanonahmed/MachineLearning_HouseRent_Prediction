@@ -11,9 +11,18 @@ def compute_co_efficient(x,y):
     p1=sum_xy/sum_x
     p0=y_mean-p1*x_mean
     return(p0,p1)
+    
+    
 def plot_graph(x,y,b):
     #plot original graph
     mtplotlib.pyplot.scatter(x,y,color="m",marker="o",s=30)
+    #pretiction array
+    y_predict=b[0]+b[1]*x
+    #print(y_predict)
+    mtplotlib.pyplot.plot(x,y_predict,color="g")
+    mtplotlib.pyplot.xlabel('x')
+    mtplotlib.pyplot.ylabel('predict_y')
+    mtplotlib.pyplot.show()
     
     
 
