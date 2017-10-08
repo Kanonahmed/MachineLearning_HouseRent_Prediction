@@ -17,8 +17,12 @@ def plot_graph(x,y,b):
     #plot original graph
     mtplotlib.pyplot.scatter(x,y,color="m",marker="o",s=30)
     #pretiction array
-    y_predict=b[0]+b[1]*x
-    #print(y_predict)
+    y_predict=b[0]+b[1]*x    
+    error=np.sum(pow(y-y_predict,2))/(2*len(y))
+    
+    for i in range(0,len(y_predict)):
+        y_predict[i]+=error
+    
     mtplotlib.pyplot.plot(x,y_predict,color="g")
     mtplotlib.pyplot.xlabel('x')
     mtplotlib.pyplot.ylabel('predict_y')
