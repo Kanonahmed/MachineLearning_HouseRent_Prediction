@@ -19,7 +19,7 @@ def plot_graph(x,y,b):
     #pretiction array
     y_predict=b[0]+b[1]*x    
     error=np.sum(pow(y-y_predict,2))/(2*len(y))
-    
+    print("error = {}".format(error))
     for i in range(0,len(y_predict)):
         y_predict[i]+=error
     

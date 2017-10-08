@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import matplotlib as matpltlib
+import matplotlib as mtplotlib
 
 def compute_error_b0(y,y1):
     error=np.sum(y1-y)/len(y)
@@ -12,7 +12,7 @@ def compute_error_b1(y,y1,x):
     return error
 
 def gradient_descent(b0,b1,x,y):
-    alph=0.05
+    alph=0.0001
     iterator=200000
     for i in range(0,iterator):
         pretiction=b0+b1*x
@@ -30,7 +30,7 @@ def plot_graph(x,y,b):
     #pretiction array
     y_predict=b[0]+b[1]*x    
     error=np.sum(pow(y-y_predict,2))/(2*len(y))
-    
+    print("error = {}".format(error))
     for i in range(0,len(y_predict)):
         y_predict[i]+=error
     
