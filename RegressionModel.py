@@ -31,8 +31,11 @@ def plot_graph(x,y,b):
     
 
 def main():
-   x=np.array([0,1,2,3,4,5,6,7,8,9])
-   y=np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])
+   #x=np.array([0,1,2,3,4,5,6,7,8,9])
+   #y=np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])
+   loadData=pd.read_csv('data/houseRents.csv')
+   x=loadData['Space']
+   y=loadData['Rent']
    b=compute_co_efficient(x,y)
    print("The co-efficient\n b0= {}\n b1= {}".format(b[0],b[1]))
    plot_graph(x,y,b)

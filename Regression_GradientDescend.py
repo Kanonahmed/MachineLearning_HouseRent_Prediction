@@ -13,7 +13,7 @@ def compute_error_b1(y,y1,x):
 
 def gradient_descent(b0,b1,x,y):
     alph=0.0001
-    iterator=200000
+    iterator=20000
     for i in range(0,iterator):
         pretiction=b0+b1*x
         error=compute_error_b0(y,pretiction)
@@ -41,8 +41,12 @@ def plot_graph(x,y,b):
 
 
 def main():
-    x=np.array([0,1,2,3,4,5,6,7,8,9])
-    y=np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])
+    loadData=pd.read_csv('data/houseRents.csv')
+    #x=np.array([0,1,2,3,4,5,6,7,8,9])
+    #y=np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])
+    x=loadData['Space']
+    y=loadData['Rent']
+   
     b=gradient_descent(0,0,x,y)
     print("The co-efficient\n b0= {}\n b1= {}".format(b[0],b[1]))
     plot_graph(x,y,b)
